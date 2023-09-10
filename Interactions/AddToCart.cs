@@ -7,23 +7,20 @@ namespace tests.Interactions;
 
 public class AddToCart : ITask
 {
-    private readonly LoginCredentials _credentials;
+    private readonly string _item;
 
-    private AddToCart(LoginCredentials credentials)
+    private AddToCart(string item)
     {
-        _credentials = credentials;
+        _item = item;
     }
 
-    public static ITask With(LoginCredentials credentials)
+    public static ITask With(string item)
     {
-        return new AddToCart(credentials);
+        return new AddToCart(item);
     }
 
     public void PerformAs(IActor actor)
     {
-        actor.AttemptsTo(
-            SendKeys.To(LoginPage.UsernameInput, _credentials.Username), 
-            SendKeys.To(LoginPage.PasswordInput, _credentials.Password)
-        );
+        actor.AttemptsTo(Click.On(InventoryPage.AddToCartButton(_item)));
     }
 }

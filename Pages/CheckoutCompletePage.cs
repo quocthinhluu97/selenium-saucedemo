@@ -6,9 +6,9 @@ namespace tests.Pages;
 
 public static class CheckoutCompletePage
 {
-    public static string Url => "https://www.saucedemo.com/checkout-step-two.html";
+    public static string Url => "https://www.saucedemo.com/checkout-complete.html";
     
-    public static IWebLocator FinishButton => L(
-        "Last name input",
-        By.XPath("//button[@data-test=\"finish\"]"));
+    public static IWebLocator Text (string text) => L(
+        "Text that can be found on this page",
+        By.XPath($"//*[text()=\"{text}\"]"));
 }

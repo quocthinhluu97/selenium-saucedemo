@@ -6,13 +6,20 @@ namespace tests.Pages;
 
 public static class CheckoutStepOnePage
 {
-    public static string Url => "https://www.saucedemo.com/cart.html";
-
-    public static IWebLocator Item(string item) => L(
-        "Inventory item",
-        By.LinkText(item));
+    public static string Url => "https://www.saucedemo.com/checkout-step-one.html";
+    public static IWebLocator FirstNameInput => L(
+        "First name input",
+        By.CssSelector("[placeholder=\"First Name\"]"));
     
-    public static IWebLocator CheckoutButton => L(
-        "Checkout button",
-        By.XPath("//button[@id=\"checkout\"]"));
+    public static IWebLocator LastNameInput => L(
+        "Last name input",
+        By.CssSelector("[placeholder=\"Last Name\"]"));
+    
+    public static IWebLocator ZipCodeInput => L(
+        "Zip code input",
+        By.CssSelector("[placeholder=\"Zip/Postal Code\"]"));
+
+    public static IWebLocator ContinueButton => L(
+        "Continue button",
+        By.Name("continue"));
 }

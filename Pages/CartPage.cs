@@ -6,9 +6,13 @@ namespace tests.Pages;
 
 public static class CartPage
 {
-    public static string Url => "https://www.saucedemo.com/inventory.html";
+    public static string Url => "https://www.saucedemo.com/cart.html";
 
-    public static IWebLocator AddToCartButton(string item) => L(
-        "Add to cart button by name of item",
-        By.XPath($"//div[text()='{item}']/ancestor::div[@class=\"inventory_item\"]//button[@data-test=\"add-to-cart-sauce-labs-backpack\"]"));
+    public static IWebLocator Item(string item) => L(
+        "Inventory item",
+        By.LinkText(item));
+    
+    public static IWebLocator CheckoutButton => L(
+        "Checkout button",
+        By.XPath("//button[@id=\"checkout\"]"));
 }

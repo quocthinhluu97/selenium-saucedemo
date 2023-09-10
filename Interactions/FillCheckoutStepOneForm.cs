@@ -7,23 +7,24 @@ namespace tests.Interactions;
 
 public class FillCheckoutStepOneForm : ITask
 {
-    private readonly LoginCredentials _credentials;
+    private readonly CheckoutInformation _checkoutInformation;
 
-    private FillCheckoutStepOneForm(LoginCredentials credentials)
+    private FillCheckoutStepOneForm(CheckoutInformation checkoutInformation)
     {
-        _credentials = credentials;
+        _checkoutInformation = checkoutInformation;
     }
 
-    public static ITask With(LoginCredentials credentials)
+    public static ITask With(CheckoutInformation checkoutInformation)
     {
-        return new FillCheckoutStepOneForm(credentials);
+        return new FillCheckoutStepOneForm(checkoutInformation);
     }
 
     public void PerformAs(IActor actor)
     {
         actor.AttemptsTo(
-            SendKeys.To(LoginPage.UsernameInput, _credentials.Username), 
-            SendKeys.To(LoginPage.PasswordInput, _credentials.Password)
+            SendKeys.To(CheckoutStepOnePage.FirstNameInput, _checkoutInformation.FirstName),
+            SendKeys.To(CheckoutStepOnePage.LastNameInput, _checkoutInformation.LastName),
+            SendKeys.To(CheckoutStepOnePage.ZipCodeInput, _checkoutInformation.ZipCode)
         );
     }
 }
