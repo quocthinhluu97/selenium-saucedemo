@@ -21,5 +21,15 @@ namespace tests.Hooks
             var actor = featureContext.FeatureContainer.Resolve<Actor>();
             actor.AttemptsTo(QuitWebDriver.ForBrowser());
         }
+        
+        [AfterScenario]
+        public static void HandleFailure(ScenarioContext scenarioContext, FeatureContext featureContext)
+        {
+            var actor = featureContext.FeatureContainer.Resolve<Actor>();
+            if (scenarioContext.ScenarioExecutionStatus != ScenarioExecutionStatus.OK)
+            {
+                actor.AskingFor(CurrentScreenshot.SavedTo("./screenshots/"));
+            }
+        }
     }
 }

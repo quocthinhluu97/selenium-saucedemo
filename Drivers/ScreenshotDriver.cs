@@ -2,7 +2,8 @@ using System;
 
 namespace tests.Drivers
 {
-    public class Driver
+    public class ScreenshotDriver
     {
+        
     }
 }

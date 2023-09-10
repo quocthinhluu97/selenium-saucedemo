@@ -5,6 +5,7 @@ using System.Text;
 using Boa.Constrictor.Screenplay;
 using Boa.Constrictor.Selenium;
 using FluentAssertions;
+using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 using tests.Interactions;

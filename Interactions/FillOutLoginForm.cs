@@ -1,5 +1,6 @@
 ﻿using Boa.Constrictor.Screenplay;
 using Boa.Constrictor.Selenium;
+using OpenQA.Selenium;
 using tests.Models;
 using tests.Pages;
 
