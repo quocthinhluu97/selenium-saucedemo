@@ -5,18 +5,18 @@ using tests.Pages;
 
 namespace tests.Interactions;
 
-public class FillOutLoginForm : ITask
+public class FillCheckoutStepOneForm : ITask
 {
     private readonly LoginCredentials _credentials;
 
-    private FillOutLoginForm(LoginCredentials credentials)
+    private FillCheckoutStepOneForm(LoginCredentials credentials)
     {
         _credentials = credentials;
     }
 
     public static ITask With(LoginCredentials credentials)
     {
-        return new FillOutLoginForm(credentials);
+        return new FillCheckoutStepOneForm(credentials);
     }
 
     public void PerformAs(IActor actor)

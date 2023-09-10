@@ -4,7 +4,7 @@ using static Boa.Constrictor.Selenium.WebLocator;
 
 namespace tests.Pages;
 
-public static class CheckoutStepOnePage
+public static class CheckoutStepTwoPage
 {
     public static string Url => "https://www.saucedemo.com/checkout-step-one.html";
 

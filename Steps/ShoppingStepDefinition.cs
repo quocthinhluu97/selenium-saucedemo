@@ -14,12 +14,12 @@ using tests.Pages;
 namespace tests.Steps;
 
 [Binding]
-public sealed class LoginStepDefinition
+public sealed class ShoppingStepDefinition
 {
     private readonly ScenarioContext _scenarioContext;
     private readonly Actor _actor;
 
-    public LoginStepDefinition(ScenarioContext scenarioContext, Actor actor)
+    public ShoppingStepDefinition(ScenarioContext scenarioContext, Actor actor)
     {
         _scenarioContext = scenarioContext;
         _actor = actor;

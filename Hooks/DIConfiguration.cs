@@ -1,33 +1,24 @@
-using System;
 using Boa.Constrictor.Screenplay;
 using Boa.Constrictor.Selenium;
 using OpenQA.Selenium.Chrome;
-using TechTalk.SpecFlow;
 
 namespace tests.Hooks
 {
     [Binding]
     public class DIConfiguration
     {
-        private readonly ScenarioContext _scenarioContext;
-
-        public DIConfiguration(ScenarioContext scenarioContext)
-        {
-            _scenarioContext = scenarioContext;
-        }
-
-        [BeforeScenario(Order = 0)]
-        public void RegisterDI()
+        [BeforeFeature(Order = 0)]
+        public static void RegisterDI(FeatureContext featureContext)
         {
             var actor = new Actor("chrome", new ConsoleLogger());
             actor.Can(BrowseTheWeb.With(new ChromeDriver()));
-            _scenarioContext.ScenarioContainer.RegisterInstanceAs(actor);
+            featureContext.FeatureContainer.RegisterInstanceAs(actor);
         }
 
-        [AfterScenario]
-        public void CleanUp()
+        [AfterFeature]
+        public static void CleanUp(FeatureContext featureContext)
         {
-            var actor = _scenarioContext.ScenarioContainer.Resolve<Actor>();
+            var actor = featureContext.FeatureContainer.Resolve<Actor>();
             actor.AttemptsTo(QuitWebDriver.ForBrowser());
         }
     }

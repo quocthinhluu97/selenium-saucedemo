@@ -4,7 +4,7 @@ using static Boa.Constrictor.Selenium.WebLocator;
 
 namespace tests.Pages;
 
-public static class InventoryPage
+public static class CartPage
 {
     public static string Url => "https://www.saucedemo.com/inventory.html";
 
