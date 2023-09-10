@@ -243,7 +243,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("I got navigated to the checkout complete page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 34
- testRunner.And("I can see the \'Thank you for your order!3\' text", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I can see the \'Thank you for your order!33\' text", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

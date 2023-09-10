@@ -31,4 +31,4 @@ Scenario: 4. Proceed to checkout step two
  	Given I am on the checkout step two page
  	When I click on the finish button
 	Then I got navigated to the checkout complete page
-	And I can see the 'Thank you for your order!' text
+	And I can see the 'Thank you for your order!33' text
