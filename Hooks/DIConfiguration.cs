@@ -1,6 +1,5 @@
 using Boa.Constrictor.Screenplay;
 using Boa.Constrictor.Selenium;
-using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow.Infrastructure;
 
@@ -10,7 +9,8 @@ namespace tests.Hooks
     public class DIConfiguration
     {
         private static ISpecFlowOutputHelper _outputHelper;
-        private static readonly string currentDirectory = Directory.GetCurrentDirectory();
+        private static readonly string CurrentDirectory = Directory.GetCurrentDirectory();
+        private static readonly string PathToRootFolder = "/../../../";
 
         [BeforeFeature(Order = 0)]
         public static void RegisterDI(FeatureContext featureContext)
@@ -18,6 +18,7 @@ namespace tests.Hooks
             var actor = new Actor("chrome", new ConsoleLogger());
             actor.Can(BrowseTheWeb.With(new ChromeDriver()));
             featureContext.FeatureContainer.RegisterInstanceAs(actor);
+            DotNetEnv.Env.TraversePath().Load();
         }
 
         [AfterFeature]
@@ -34,7 +35,7 @@ namespace tests.Hooks
             _outputHelper = outputHelper;
             if (scenarioContext.ScenarioExecutionStatus != ScenarioExecutionStatus.OK)
             {
-                string screenShotPath = currentDirectory + "/../../../screenshots/";
+                string screenShotPath = CurrentDirectory + PathToRootFolder + "screenshots/";
                 string screenShotFile = scenarioContext.ScenarioInfo.Title + "_failure.png";
                 Console.WriteLine(screenShotPath);
                 Console.WriteLine(screenShotFile);

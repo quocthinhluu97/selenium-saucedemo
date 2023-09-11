@@ -6,7 +6,7 @@ namespace tests.Pages;
 
 public static class CheckoutStepOnePage
 {
-    public static string Url => "https://www.saucedemo.com/checkout-step-one.html";
+    public static string Url => Environment.GetEnvironmentVariable("BASE_URL") + "/checkout-step-one.html";
     public static IWebLocator FirstNameInput => L(
         "First name input",
         By.CssSelector("[placeholder=\"First Name\"]"));

@@ -6,7 +6,7 @@ namespace tests.Pages;
 
 public class InventoryPage
 {
-    public static string Url => "https://www.saucedemo.com/inventory.html";
+    public static string Url => Environment.GetEnvironmentVariable("BASE_URL") + "/inventory.html";
     
     public static IWebLocator ShoppingCartLink => L(
         "Go to shopping cart link",

@@ -6,7 +6,7 @@ namespace tests.Pages;
 
 public static class CheckoutStepTwoPage
 {
-    public static string Url => "https://www.saucedemo.com/checkout-step-two.html";
+    public static string Url => Environment.GetEnvironmentVariable("BASE_URL") + "/checkout-step-two.html";
 
     public static IWebLocator FinishButton => L(
         "Finish button",
